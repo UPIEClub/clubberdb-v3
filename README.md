@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
+<!-- <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
@@ -92,6 +92,31 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default) -->
 
 <!-- AUTO-GENERATED-CONTENT:END -->
+
+# Inside the Club (ClubberDB) v3.0
+
+Hello there! Welcome to the repository of the third (THIRD!!) iteration of ClubberDB's frontend (user-facing) module.
+
+### Setting up `sass`
+
+- [see article](https://dev.to/mollynem/setting-up-sass-in-gatsby-project-4-easy-steps-4p9b)
+
+### Setting up `Semantic UI React`
+
+- [see article](https://medium.com/@rosegraner/how-to-integrate-semantic-ui-react-and-gatsby-js-36e8eaeb022b)
+
+## Built with
+
+- [React](https://reactjs.org)
+- [Semantic UI React](https://react.semantic-ui.com/)
+
+## Contributors
+
+| [<img src="https://avatars0.githubusercontent.com/u/15464595?s=460&v=4" width="100px;"/><br /><sub><b>@jamesabaja</b></sub>](https://github.com/jamesabaja)<br /> :bug: 💻 📖 🤔 :shield: |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+
+
+This project was initially developed and is currently maintained by [James Abaja](https://github.com/jamesabaja).
