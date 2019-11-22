@@ -111,6 +111,7 @@ Hello there! Welcome to the repository of the third (THIRD!!) iteration of Clubb
 ## Built with
 
 - [React](https://reactjs.org)
+- [Gatsby](https://www.gatsbyjs.org/)
 - [Semantic UI React](https://react.semantic-ui.com/)
 
 ## Contributors
