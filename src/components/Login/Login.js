@@ -1,5 +1,5 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import React, { useState } from "react"
+import { useStaticQuery, graphql, navigate } from "gatsby"
 import Img from "gatsby-image"
 import {
   Card,
@@ -16,6 +16,7 @@ import classNames from "classnames"
 
 import { verticalAlignCenter } from "./login.module.scss"
 import Layout from "../Layout/Layout"
+import api from "../../services/api"
 
 const Login = () => {
   const logo = useStaticQuery(graphql`
@@ -29,11 +30,62 @@ const Login = () => {
       }
     }
   `)
+  const [formData, setFormData] = useState({})
+  const [isLoading, setIsLoading] = useState(false)
+  const [message, setMessage] = useState({
+    active: false,
+    body: "",
+    type: "",
+  })
+
+  const logIn = () => {
+    setIsLoading(true)
+    setMessage({ ...message, active: false })
+    api
+      .post("login/", formData)
+      .then(response => {
+        sessionStorage.setItem("isAuthenticated", "true")
+        sessionStorage.setItem("clubberDetails", JSON.stringify(response.data))
+        sessionStorage.setItem("studentNumber", formData.student_number)
+        sessionStorage.setItem("id", response.data.id)
+        if (response.data.is_admin) {
+          sessionStorage.setItem("isAdmin", "true")
+        }
+        setIsLoading(false)
+        if (response.data.is_pending)
+          setMessage({
+            active: true,
+            body:
+              "Your account is not yet verified. Contact your VP or Internals on verifying your account.",
+            type: "warning",
+          })
+        else navigate("/")
+      })
+      .catch(error => {
+        setMessage({
+          active: true,
+          body: "Invalid username/password.",
+          type: "error",
+        })
+        setIsLoading(false)
+      })
+  }
+
+  const onChange = (event, data) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  const handleKeyDown = (event, data) => {
+    if (event.key === "Enter") logIn()
+  }
 
   return (
     <Layout title="Inside the Club - Login">
       <Container textAlign="center" className={classNames(verticalAlignCenter)}>
-        <Dimmer inverted>
+        <Dimmer inverted active={isLoading}>
           <Loader>Verifying your credentials, please wait...</Loader>
         </Dimmer>
         <Img fixed={logo.placeholderImage.childImageSharp.fixed} />
@@ -52,8 +104,8 @@ const Login = () => {
               name="student_number"
               iconPosition="left"
               placeholder="Student Number"
-              // onChange={this.onChange}
-              // onKeyDown={this.handleKeyDown}
+              onChange={onChange}
+              onKeyDown={handleKeyDown}
             />
             <br />
             <Input
@@ -63,16 +115,12 @@ const Login = () => {
               icon="key"
               iconPosition="left"
               placeholder="Password"
-              // onChange={this.onChange}
-              // onKeyDown={this.handleKeyDown}
+              onChange={onChange}
+              onKeyDown={handleKeyDown}
             />
           </Card.Content>
           <Card.Content>
-            <Button
-              fluid
-              color="green"
-              // onClick={this.logIn}
-            >
+            <Button fluid color="green" onClick={logIn}>
               Login
             </Button>
             <br />
@@ -81,17 +129,15 @@ const Login = () => {
             Forgot your password?{" "}
             <a href="/forgot-password">Reset your password here.</a>
           </Card.Content>
-          {/* {this.state.showMessage && (
-            <Message attached warning>
-              Your account is not yet verified. Contact your VP or Internals on
-              verifying your account.
+          {message.active && (
+            <Message
+              attached
+              error={message.type === "error"}
+              warning={message.type === "warning"}
+            >
+              {message.body}
             </Message>
           )}
-          {this.state.wrongCredentials && (
-            <Message attached error>
-              Invalid username/password.
-            </Message>
-          )} */}
         </Card>
       </Container>
     </Layout>
