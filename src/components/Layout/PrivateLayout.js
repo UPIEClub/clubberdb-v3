@@ -3,6 +3,7 @@ import { navigate } from "gatsby"
 
 import Layout from "./Layout"
 import { isLoggedIn } from "../../services/auth"
+import MenuBar from "../MenuBar/MenuBar"
 
 const PrivateLayout = ({ children, title }) => {
   const [isVerifying, setIsVerifying] = useState(true)
@@ -13,7 +14,13 @@ const PrivateLayout = ({ children, title }) => {
   }, [])
 
   if (isVerifying || !isLoggedIn()) return null
-  else return <Layout title={title}>{children}</Layout>
+  else
+    return (
+      <Layout title={title}>
+        <MenuBar />
+        {children}
+      </Layout>
+    )
 }
 
 export default PrivateLayout

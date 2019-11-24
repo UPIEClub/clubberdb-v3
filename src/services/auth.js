@@ -9,3 +9,14 @@ export const isLoggedIn = () =>
   isBrowser() && sessionStorage.getItem("isAuthenticated")
     ? sessionStorage.getItem("isAuthenticated") === "true"
     : false
+
+export const logOut = () => {
+  if (isBrowser()) {
+    sessionStorage.removeItem("isAuthenticated")
+    sessionStorage.removeItem("clubberDetails")
+    sessionStorage.removeItem("profileDetails")
+    sessionStorage.removeItem("studentNumber")
+    sessionStorage.removeItem("isAdmin")
+    sessionStorage.removeItem("id")
+  }
+}

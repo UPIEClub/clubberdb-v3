@@ -1,0 +1,21 @@
+[{
+    "name": "app_batch",
+    "label": "(App Batch)"
+  },
+  {
+    "name": "batch",
+    "label": "(Batch)"
+  },
+  {
+    "name": "hobbies",
+    "label": "(Hobbies)"
+  },
+  {
+    "name": "interests",
+    "label": "(Interests)"
+  },
+  {
+    "name": "other_commitments",
+    "label": "(Other Commitments)"
+  }
+]

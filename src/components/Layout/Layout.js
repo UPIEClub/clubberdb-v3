@@ -1,5 +1,6 @@
 import React, { Fragment } from "react"
 import SEO from "../seo"
+import "../../styles/global.scss"
 
 const Layout = ({ children, title }) => (
   <Fragment>

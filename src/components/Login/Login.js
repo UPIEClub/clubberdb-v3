@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useStaticQuery, graphql, navigate } from "gatsby"
 import Img from "gatsby-image"
 import {
@@ -16,6 +16,7 @@ import classNames from "classnames"
 import { verticalAlignCenter } from "./login.module.scss"
 import Layout from "../Layout/Layout"
 import api from "../../services/api"
+import { logOut } from "../../services/auth"
 
 const Login = () => {
   const logo = useStaticQuery(graphql`
@@ -45,6 +46,10 @@ const Login = () => {
       .then(response => {
         sessionStorage.setItem("isAuthenticated", "true")
         sessionStorage.setItem("clubberDetails", JSON.stringify(response.data))
+        sessionStorage.setItem(
+          "profileDetails",
+          JSON.stringify(response.data.personal_details)
+        )
         sessionStorage.setItem("studentNumber", formData.student_number)
         sessionStorage.setItem("id", response.data.id)
         if (response.data.is_admin) {
@@ -80,6 +85,10 @@ const Login = () => {
   const handleKeyDown = (event, data) => {
     if (event.key === "Enter") logIn()
   }
+
+  useEffect(() => {
+    logOut()
+  }, [])
 
   return (
     <Layout title="Inside the Club - Login">
