@@ -5,7 +5,6 @@ import {
   Card,
   Input,
   Button,
-  Image,
   Header,
   Container,
   Dimmer,
@@ -89,7 +88,6 @@ const Login = () => {
           <Loader>Verifying your credentials, please wait...</Loader>
         </Dimmer>
         <Img fixed={logo.placeholderImage.childImageSharp.fixed} />
-        {/* <Image src={ieclub} centered size="tiny" /> */}
         <Header as="h2" color="red">
           Inside the Club
         </Header>
