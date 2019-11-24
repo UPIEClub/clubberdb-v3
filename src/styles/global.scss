@@ -1,0 +1,74 @@
+@for $i from 0 through 10 {
+
+  .m-#{$i},
+  // margin all around
+  .mx-#{$i},
+  // margin for both left and right
+  .mr-#{$i} {
+    // margin-right
+    margin-right: 0.6rem * $i !important;
+  }
+
+  .m-#{$i},
+  // margin all around
+  .mx-#{$i},
+  // margin for both left and right
+  .ml-#{$i} {
+    // margin-left
+    margin-left: 0.6rem * $i !important;
+  }
+
+  .m-#{$i},
+  // margin for all around
+  .my-#{$i},
+  // margin for both top and bottom
+  .mt-#{$i} {
+    // margin-top
+    margin-top: 0.6rem * $i !important;
+  }
+
+  .m-#{$i},
+  // margin for all around
+  .my-#{$i},
+  // margin for both top and bottom
+  .mb-#{$i} {
+    // margin-bottom
+    margin-bottom: 0.6rem * $i !important;
+  }
+
+  .p-#{$i},
+  // padding for all around
+  .px-#{$i},
+  // padding for both left and right
+  .pr-#{$i} {
+    // padding-right
+    padding-right: 0.6rem * $i !important;
+  }
+
+  .p-#{$i},
+  // padding for all around
+  .px-#{$i},
+  // padding for both top and bottom
+  .pl-#{$i} {
+    // padding-left
+    padding-left: 0.6rem * $i !important;
+  }
+
+  .p-#{$i},
+  // padding for all around
+  .py-#{$i},
+  // padding for both top and bottom
+  .pt-#{$i} {
+    // padding-top
+    padding-top: 0.6rem * $i !important;
+  }
+
+  .p-#{$i},
+  // padding for all around
+  .py-#{$i},
+  // padding for both top and bottom
+  .pb-#{$i} {
+    // padding-bottom
+    padding-bottom: 0.6rem * $i !important;
+  }
+}
