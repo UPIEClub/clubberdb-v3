@@ -6,6 +6,7 @@ const MenuBar = () => {
     <Menu color="red" inverted stackable className="mb-3">
       <MenuBarItem isHeader href="/" label="Inside the Club" />
       <Menu.Menu position="right">
+        <MenuBarItem href="/internals" label="Internals" icon="home" />
         <MenuBarItem href="/login" label="Logout" icon="sign-out" />
       </Menu.Menu>
     </Menu>

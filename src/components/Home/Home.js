@@ -14,7 +14,7 @@ const Home = () => {
     else firstName = null
 
     setName(firstName)
-  })
+  }, [])
 
   return (
     <PrivateLayout title="Home">
