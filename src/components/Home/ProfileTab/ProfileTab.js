@@ -73,7 +73,7 @@ const ProfileTab = () => {
               <div>
                 <Icon name="suitcase" className="mr-2" />
                 {profile.primary_position && profile.primary_project
-                  ? `${profile.primary_position}, ${profile.primary_project}`
+                  ? `${profile.primary_position} - ${profile.primary_project}`
                   : "TBA"}
               </div>
               <div className="mb-2">
