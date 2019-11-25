@@ -1,5 +1,10 @@
 export const isBrowser = () => typeof window !== "undefined"
 
+export const isAdmin = () =>
+  isBrowser() && sessionStorage.getItem("isAdmin")
+    ? sessionStorage.getItem("isAdmin") === "true"
+    : false
+
 export const getUser = () =>
   isBrowser() && sessionStorage.getItem("clubberDetails")
     ? JSON.parse(sessionStorage.getItem("clubberDetails"))

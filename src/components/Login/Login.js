@@ -91,7 +91,7 @@ const Login = () => {
   }, [])
 
   return (
-    <Layout title="Inside the Club - Login">
+    <Layout title="Login">
       <Container textAlign="center" className={classNames(verticalAlignCenter)}>
         <Dimmer inverted active={isLoading}>
           <Loader>Verifying your credentials, please wait...</Loader>
